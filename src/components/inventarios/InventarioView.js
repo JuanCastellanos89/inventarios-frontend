@@ -21,17 +21,22 @@ export const InventarioView = () => {
 
   return (
 
-   <div className="container-fluid">
-      <div className="row row-cols-1 row-cols-md-2 g-4">
+   <div className="container">
+      <div className="mt-2 mb-2 row row-cols-1 row-cols-md-4 g-4">
         {
           inventarios.map((inventario) =>{
             return(
               <div className="col" key={inventario._id}>
               <div className="card">
-                <img src="..." className="card-img-top" alt="..." />
+                <img src={inventario.foto} className="card-img-top" alt="..." />
                 <div className="card-body">
-                  <h5 className="card-title">Card title</h5>
-                  <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <h5 className="card-title">Caracteristicas</h5>
+                  <hr />
+                  <p className="card-text">{`Serial: ${inventario.serial}`}</p>
+                  <p className="card-text">{`Marca: ${inventario.marca.nombre}`}</p>
+                  <p className="card-text">
+                    <a>Ver Mas...</a>
+                  </p>
                 </div>
               </div>
             </div>          
