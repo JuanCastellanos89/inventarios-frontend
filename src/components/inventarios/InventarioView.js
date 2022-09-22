@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { getInventarios } from '../../services/inventarioService';
+import { InventarioCard } from './InventarioCard';
+import { InventarioNew } from './InventarioNew';
 
 export const InventarioView = () => {
 
-  const [ inventarios, setInventarios ] = useState([]);
+  const [inventarios, setInventarios] = useState([]);
+  const [openModal, setOpenModal] = useState(false);
 
   const listarInventarios = async () => {
     try {
@@ -19,33 +22,26 @@ export const InventarioView = () => {
     listarInventarios();
   }, []);
 
+  const handleOpenModal = () =>{
+    setOpenModal(!openModal);
+  }
+
   return (
 
-   <div className="container">
+    <div className="container">
       <div className="mt-2 mb-2 row row-cols-1 row-cols-md-4 g-4">
         {
-          inventarios.map((inventario) =>{
-            return(
-              <div className="col" key={inventario._id}>
-              <div className="card">
-                <img src={inventario.foto} className="card-img-top" alt="..." />
-                <div className="card-body">
-                  <h5 className="card-title">Caracteristicas</h5>
-                  <hr />
-                  <p className="card-text">{`Serial: ${inventario.serial}`}</p>
-                  <p className="card-text">{`Marca: ${inventario.marca.nombre}`}</p>
-                  <p className="card-text">
-                    <a>Ver Mas...</a>
-                  </p>
-                </div>
-              </div>
-            </div>          
-            )
-          })          
+          inventarios.map((inventario) => {
+            return <InventarioCard key={inventario._id} inventario={inventario} />
+          })
         }
       </div>
-   </div>
-   
-   
+      {
+        openModal ? <InventarioNew handleOpenModal={ handleOpenModal } /> :
+          (<button className='btn btn-light fab'onClick={ () => handleOpenModal() }>
+            <i class="fa-solid fa-plus"></i> 
+            </button>)
+      }
+    </div>
   )
 }
