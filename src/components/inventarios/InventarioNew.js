@@ -55,19 +55,24 @@ export const InventarioNew = ({ handleOpenModal }) => {
                         <div className='col'>
                             <div className="mb-3">
                                 <label className="form-label">Fecha Compra</label>
-                                <input type="text" name='fechaCompra' className="form-control" />
+                                <input type="date" name='fechaCompra' className="form-control" />
                             </div>
                         </div>
                         <div className='col'>
                             <div className="mb-3">
                                 <label className="form-label">Precio</label>
-                                <input type="text" name='precio' className="form-control" />
+                                <input type="number" name='precio' className="form-control" />
                             </div>
                         </div>
                         <div className='col'>
                             <div className="mb-3">
                                 <label className="form-label">Usuario</label>
-                                <input type="text" name='usuario' className="form-control" />
+                                <select className="form-select">
+                                    <option selected>Open this select menu</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
                             </div>
                         </div>
                     </div>

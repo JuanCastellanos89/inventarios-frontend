@@ -17,7 +17,7 @@ const crearInventarios = (data) => {
 }
 
 const editInventarios = (inventarioId, data) => {
-    return axiosInstance.put('inventario/${inventarioId}', data, {
+    return axiosInstance.put(`inventario/${inventarioId}`, data, {
         headers: {
             'Content-type': 'application/json'
         }
@@ -27,5 +27,5 @@ export{
     getInventarios,
     crearInventarios,
     editInventarios
-}
+} 
 
