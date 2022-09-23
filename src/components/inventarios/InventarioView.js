@@ -39,7 +39,7 @@ export const InventarioView = () => {
       {
         openModal ? <InventarioNew handleOpenModal={ handleOpenModal } /> :
           (<button className='btn btn-light fab'onClick={ () => handleOpenModal() }>
-            <i class="fa-solid fa-plus"></i> 
+            <i className="fa-solid fa-plus"></i> 
             </button>)
       }
     </div>
