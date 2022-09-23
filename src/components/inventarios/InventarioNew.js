@@ -6,10 +6,14 @@ import { getEstadosEquipo } from '../../services/estadoEquipoService';
 
 export const InventarioNew = ({ handleOpenModal }) => {
 
-    const [ usuarios, setUsuarios ] = useState([]);
-    const [ marcas, setMarcas ] = useState([]);
-    const [ tipos, setTipos ] = useState([]);
-    const [ estados, setEstados ] = useState([]);
+    const [ usuarios, setUsuarios] = useState([]);
+    const [ marcas, setMarcas] = useState([]);
+    const [ tipos, setTipos] = useState([]);
+    const [ estados, setEstados] = useState([]);
+    const [ valoresForm, setValoresForm ] = useState([]);
+    const { serial='', modelo='', descripcion='', color='', foto='', 
+            fechaCompra='', precio='' } = valoresForm;
+    
 
     const listarUsuarios = async () => {
         try {
@@ -61,6 +65,11 @@ export const InventarioNew = ({ handleOpenModal }) => {
         listarEstados();
     }, []);
 
+    const handleOnChange = ({ target }) => {
+        const { name, value} = target;
+        setValoresForm({...valoresForm, [name]: value}); //spread
+    }
+
     return (
         <div className='sidebar'>
             <div className='container-fluid'>
@@ -82,25 +91,37 @@ export const InventarioNew = ({ handleOpenModal }) => {
                         <div className='col'>
                             <div className="mb-3">
                                 <label className="form-label">Serial</label>
-                                <input type="text" name='serial' className="form-control" />
+                                <input type="text" name='serial' 
+                                value={serial}
+                                onChange={ (e) => handleOnChange(e) } 
+                                className="form-control" />
                             </div>
                         </div>
                         <div className='col'>
                             <div className="mb-3">
                                 <label className="form-label">Modelo</label>
-                                <input type="text" name='modelo' className="form-control" />
+                                <input type="text" name='modelo' 
+                                value={modelo}
+                                onChange={ (e) => handleOnChange(e) }  
+                                className="form-control" />
                             </div>
                         </div>
                         <div className='col'>
                             <div className="mb-3">
                                 <label className="form-label">Descripcion</label>
-                                <input type="text" name='descripcion' className="form-control" />
+                                <input type="text" name='descripcion' 
+                                value={descripcion}
+                                onChange={ (e) => handleOnChange(e) }  
+                                className="form-control" />
                             </div>
                         </div>
                         <div className='col'>
                             <div className="mb-3">
                                 <label className="form-label">Color</label>
-                                <input type="text" name='color' className="form-control" />
+                                <input type="text" name='color' 
+                                value={color} 
+                                onChange={ (e) => handleOnChange(e) } 
+                                className="form-control" />
                             </div>
                         </div>
                     </div>
@@ -108,19 +129,28 @@ export const InventarioNew = ({ handleOpenModal }) => {
                         <div className='col'>
                             <div className="mb-3">
                                 <label className="form-label">Foto</label>
-                                <input type="text" name='foto' className="form-control" />
+                                <input type="text" name='foto' 
+                                value={foto} 
+                                onChange={ (e) => handleOnChange(e) } 
+                                className="form-control" />
                             </div>
                         </div>
                         <div className='col'>
                             <div className="mb-3">
                                 <label className="form-label">Fecha Compra</label>
-                                <input type="date" name='fechaCompra' className="form-control" />
+                                <input type="date" name='fechaCompra'
+                                value={fechaCompra}
+                                onChange={ (e) => handleOnChange(e) }  
+                                className="form-control" />
                             </div>
                         </div>
                         <div className='col'>
                             <div className="mb-3">
                                 <label className="form-label">Precio</label>
-                                <input type="number" name='precio' className="form-control" />
+                                <input type="number" name='precio' 
+                                value={precio}
+                                onChange={ (e) => handleOnChange(e) } 
+                                className="form-control" />
                             </div>
                         </div>
                         <div className='col'>
@@ -132,8 +162,8 @@ export const InventarioNew = ({ handleOpenModal }) => {
                                         usuarios.map(({ _id, nombre }) => {
                                             return <option key={_id} value={_id}>
                                                 {nombre}
-                                                </option>
-                                        })                                       
+                                            </option>
+                                        })
                                     }
                                 </select>
                             </div>
@@ -143,19 +173,46 @@ export const InventarioNew = ({ handleOpenModal }) => {
                         <div className='col'>
                             <div className="mb-3">
                                 <label className="form-label">Marca</label>
-                                <input type="text" name='marca' className="form-control" />
+                                <select className="form-select">
+                                    <option value="">--SELECCIONE--</option>
+                                    {
+                                        marcas.map(({ _id, nombre }) => {
+                                            return <option key={_id} value={_id}>
+                                                {nombre}
+                                            </option>
+                                        })
+                                    }
+                                </select>
                             </div>
                         </div>
                         <div className='col'>
                             <div className="mb-3">
                                 <label className="form-label">Tipo de Equipo</label>
-                                <input type="text" name='tipoEquipo' className="form-control" />
+                                <select className="form-select">
+                                    <option value="">--SELECCIONE--</option>
+                                    {
+                                        tipos.map(({ _id, nombre }) => {
+                                            return <option key={_id} value={_id}>
+                                                {nombre}
+                                                </option>
+                                        })                                       
+                                    }
+                                </select>
                             </div>
                         </div>
                         <div className='col'>
                             <div className="mb-3">
                                 <label className="form-label">Estado de Equipo</label>
-                                <input type="text" name='estadoEquipo' className="form-control" />
+                                <select className="form-select">
+                                    <option value="">--SELECCIONE--</option>
+                                    {
+                                        estados.map(({ _id, nombre }) => {
+                                            return <option key={_id} value={_id}>
+                                                {nombre}
+                                                </option>
+                                        })                                       
+                                    }
+                                </select>
                             </div>
                         </div>
                     </div>
