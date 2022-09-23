@@ -282,7 +282,6 @@ export const InventarioNew = ({ handleOpenModal, listarInventarios }) => {
                             <button className='btn btn-success'>Guardar</button>
                         </div>
                     </div>
-
                 </form>
             </div>
         </div>
