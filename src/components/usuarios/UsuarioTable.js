@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export const UsuarioTable = (props) => {
     const { usuarios } = props;
@@ -8,9 +9,10 @@ export const UsuarioTable = (props) => {
             <thead>
                 <tr>
 
-                    <th >Nombre</th>
-                    <th >Email</th>
-                    <th >Estado</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Estado</th>
+                    <th>Accion</th>
                 </tr>
             </thead>
             <tbody>
@@ -19,7 +21,8 @@ export const UsuarioTable = (props) => {
                         return <tr key={usuario._id}>
                             <th>{usuario.nombre}</th>
                             <th>{usuario.email}</th>
-                            <td>{usuario.estado}</td>
+                            <th>{usuario.estado}</th>
+                            <Link to={`usuario/edit/${usuario._id}`} >Modificar</Link>
                         </tr>
                     })
                 }

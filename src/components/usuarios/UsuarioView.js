@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { getUsuarios, crearUsuarios, editarUsuarios } from '../../services/usuarioService';
+import { getUsuarios, crearUsuarios } from '../../services/usuarioService';
 import { UsuarioTable } from './UsuarioTable';
 import Swal from 'sweetalert2';
+
 
 export const UsuarioView = () => {
   const [usuarios, setUsuarios] = useState([]);
@@ -102,7 +103,7 @@ export const UsuarioView = () => {
             <button className='btn btn-success'>Guardar</button>
           </div>
         </div>
-        
+
       </form>
       <UsuarioTable usuarios={usuarios} />
     </div>
