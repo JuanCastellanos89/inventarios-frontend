@@ -3,6 +3,8 @@ import { getUsuarios } from '../../services/usuarioService';
 import { getMarcas } from '../../services/marcaService';
 import { getTiposEquipo } from '../../services/tipoEquipoService';
 import { getEstadosEquipo } from '../../services/estadoEquipoService';
+import { crearInventarios } from '../../services/inventarioService';
+import Swal from 'sweetalert2'; 
 
 export const InventarioNew = ({ handleOpenModal }) => {
 
@@ -12,7 +14,7 @@ export const InventarioNew = ({ handleOpenModal }) => {
     const [ estados, setEstados] = useState([]);
     const [ valoresForm, setValoresForm ] = useState([]);
     const { serial='', modelo='', descripcion='', color='', foto='', 
-            fechaCompra='', precio='' } = valoresForm;
+            fechaCompra='', precio='', usuario, marca, tipo, estado } = valoresForm;
     
 
     const listarUsuarios = async () => {
@@ -70,6 +72,41 @@ export const InventarioNew = ({ handleOpenModal }) => {
         setValoresForm({...valoresForm, [name]: value}); //spread
     }
 
+    const handleOnSubmit = async (e) =>{
+        e.preventDefault();
+        const inventario = {
+            serial, modelo, descripcion, color, foto, 
+            fechaCompra, precio, 
+            usuario: {
+                _id: usuario
+            },
+            marca: {
+                _id: marca
+            },
+            tipoEquipo: {
+                _id: tipo
+            },
+            estadoEquipo: {
+                _id: estado
+            } 
+        }
+        console.log(inventario);
+        try{
+            Swal.fire({
+                allowOutsideClick: false,
+                text: 'Loading...'
+            });
+            Swal.showLoading();
+            const { data } = await crearInventarios(inventario);
+            console.log(data);
+            Swal.close();
+            handleOpenModal();
+        }catch(error){
+            console.log(error);
+            Swal.close();
+        }
+    }
+
     return (
         <div className='sidebar'>
             <div className='container-fluid'>
@@ -86,12 +123,13 @@ export const InventarioNew = ({ handleOpenModal }) => {
                         <hr />
                     </div>
                 </div>
-                <form>
+                <form onSubmit={(e) => handleOnSubmit(e)}>
                     <div className='row'>
                         <div className='col'>
                             <div className="mb-3">
                                 <label className="form-label">Serial</label>
-                                <input type="text" name='serial' 
+                                <input type="text" name='serial'
+                                required 
                                 value={serial}
                                 onChange={ (e) => handleOnChange(e) } 
                                 className="form-control" />
@@ -101,6 +139,7 @@ export const InventarioNew = ({ handleOpenModal }) => {
                             <div className="mb-3">
                                 <label className="form-label">Modelo</label>
                                 <input type="text" name='modelo' 
+                                required
                                 value={modelo}
                                 onChange={ (e) => handleOnChange(e) }  
                                 className="form-control" />
@@ -110,6 +149,7 @@ export const InventarioNew = ({ handleOpenModal }) => {
                             <div className="mb-3">
                                 <label className="form-label">Descripcion</label>
                                 <input type="text" name='descripcion' 
+                                required
                                 value={descripcion}
                                 onChange={ (e) => handleOnChange(e) }  
                                 className="form-control" />
@@ -119,6 +159,7 @@ export const InventarioNew = ({ handleOpenModal }) => {
                             <div className="mb-3">
                                 <label className="form-label">Color</label>
                                 <input type="text" name='color' 
+                                required
                                 value={color} 
                                 onChange={ (e) => handleOnChange(e) } 
                                 className="form-control" />
@@ -129,7 +170,8 @@ export const InventarioNew = ({ handleOpenModal }) => {
                         <div className='col'>
                             <div className="mb-3">
                                 <label className="form-label">Foto</label>
-                                <input type="text" name='foto' 
+                                <input type="url" name='foto' 
+                                required
                                 value={foto} 
                                 onChange={ (e) => handleOnChange(e) } 
                                 className="form-control" />
@@ -139,6 +181,7 @@ export const InventarioNew = ({ handleOpenModal }) => {
                             <div className="mb-3">
                                 <label className="form-label">Fecha Compra</label>
                                 <input type="date" name='fechaCompra'
+                                required
                                 value={fechaCompra}
                                 onChange={ (e) => handleOnChange(e) }  
                                 className="form-control" />
@@ -148,6 +191,7 @@ export const InventarioNew = ({ handleOpenModal }) => {
                             <div className="mb-3">
                                 <label className="form-label">Precio</label>
                                 <input type="number" name='precio' 
+                                required
                                 value={precio}
                                 onChange={ (e) => handleOnChange(e) } 
                                 className="form-control" />
@@ -156,7 +200,11 @@ export const InventarioNew = ({ handleOpenModal }) => {
                         <div className='col'>
                             <div className="mb-3">
                                 <label className="form-label">Usuario</label>
-                                <select className="form-select">
+                                <select className="form-select"
+                                    required
+                                    onChange={ (e) => handleOnChange(e) }
+                                    name='usuario'
+                                    value={usuario}>
                                     <option value="">--SELECCIONE--</option>
                                     {
                                         usuarios.map(({ _id, nombre }) => {
@@ -173,7 +221,11 @@ export const InventarioNew = ({ handleOpenModal }) => {
                         <div className='col'>
                             <div className="mb-3">
                                 <label className="form-label">Marca</label>
-                                <select className="form-select">
+                                <select className="form-select"
+                                    required
+                                    onChange={ (e) => handleOnChange(e) }
+                                    name='marca'
+                                    value={marca}>
                                     <option value="">--SELECCIONE--</option>
                                     {
                                         marcas.map(({ _id, nombre }) => {
@@ -188,7 +240,11 @@ export const InventarioNew = ({ handleOpenModal }) => {
                         <div className='col'>
                             <div className="mb-3">
                                 <label className="form-label">Tipo de Equipo</label>
-                                <select className="form-select">
+                                <select className="form-select"
+                                    required
+                                    onChange={ (e) => handleOnChange(e) }
+                                    name='tipo'
+                                    value={tipo}>
                                     <option value="">--SELECCIONE--</option>
                                     {
                                         tipos.map(({ _id, nombre }) => {
@@ -203,7 +259,11 @@ export const InventarioNew = ({ handleOpenModal }) => {
                         <div className='col'>
                             <div className="mb-3">
                                 <label className="form-label">Estado de Equipo</label>
-                                <select className="form-select">
+                                <select className="form-select"
+                                    required
+                                    onChange={ (e) => handleOnChange(e) }
+                                    name='estado'
+                                    value={estado}>
                                     <option value="">--SELECCIONE--</option>
                                     {
                                         estados.map(({ _id, nombre }) => {
@@ -216,6 +276,12 @@ export const InventarioNew = ({ handleOpenModal }) => {
                             </div>
                         </div>
                     </div>
+                    <div className='row'>
+                        <div className='col'>
+                            <button className='btn btn-success'>Guardar</button>
+                        </div>
+                    </div>
+
                 </form>
             </div>
         </div>
