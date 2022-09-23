@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getInventariosPorId } from '../../services/inventarioService';
+import { getInventariosPorId, editInventarios } from '../../services/inventarioService';
 import { getUsuarios } from '../../services/usuarioService';
 import { getMarcas } from '../../services/marcaService';
 import { getTiposEquipo } from '../../services/tipoEquipoService';
 import { getEstadosEquipo } from '../../services/estadoEquipoService';
+import Swal from 'sweetalert2';
 
 export const InventarioUpdate = () => {
   const { inventarioId = '' } = useParams();
@@ -104,6 +105,34 @@ export const InventarioUpdate = () => {
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
+    const inventario = {
+      serial, modelo, descripcion, color, foto,
+      fechaCompra, precio,
+      usuario: {
+        _id: usuario
+      },
+      marca: {
+        _id: marca
+      },
+      tipoEquipo: {
+        _id: tipo
+      },
+      estadoEquipo: {
+        _id: estado
+      }
+    }
+    try {
+      Swal.fire({
+        allowOutsideClick: false,
+        text: 'Loading...'
+      });
+      Swal.showLoading();
+      const { data } = await editInventarios(inventarioId, inventario);
+      Swal.close();
+    } catch (error) {
+      console.log(error);
+      Swal.close();
+    }
   }
 
   return (
@@ -115,10 +144,10 @@ export const InventarioUpdate = () => {
         </div>
         <div className='card-body'>
           <div className='row'>
-            <div className='col-md-3'>
+            <div className='col-md-4'>
               <img src={inventario?.foto} />
             </div>
-            <div className='col-md-9'>
+            <div className='col-md-8'>
               <form onSubmit={(e) => handleOnSubmit(e)}>
                 <div className='row'>
                   <div className='col'>
