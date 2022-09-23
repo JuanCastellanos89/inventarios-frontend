@@ -70,11 +70,18 @@ export const InventarioUpdate = () => {
 
   const getInventario = async () => {
     try {
+      Swal.fire({
+        allowOutsideClick: false,
+        text: 'Loading...'
+      });
+      Swal.showLoading();
       const { data } = await getInventariosPorId(inventarioId);
       console.log(data);
       setInventario(data);
+      Swal.close();
     } catch (error) {
       console.log(error);
+      Swal.close();
     }
   }
 
@@ -121,6 +128,7 @@ export const InventarioUpdate = () => {
         _id: estado
       }
     }
+
     try {
       Swal.fire({
         allowOutsideClick: false,
@@ -132,6 +140,13 @@ export const InventarioUpdate = () => {
     } catch (error) {
       console.log(error);
       Swal.close();
+      let mensaje;
+      if (error && error.response && error.response.data) {
+        mensaje = error.response.data;
+      } else {
+        mensaje = 'Ocurrio un error, por favor intente de nuevo...';
+      }
+      Swal.fire('Error', mensaje, 'error');
     }
   }
 
