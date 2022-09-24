@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom'
 
 export const UsuarioTable = (props) => {
     const { usuarios } = props;
+    let numeral = 0;
     return (
         <table className="table">
             <thead>
                 <tr>
+                    <th>#</th>
                     <th>Nombre</th>
                     <th>Email</th>
                     <th>Estado</th>
@@ -19,6 +21,7 @@ export const UsuarioTable = (props) => {
                 {
                     usuarios.map(usuario => {
                         return <tr key={usuario._id}>
+                            <th>{++numeral}</th>
                             <th>{usuario.nombre}</th>
                             <th>{usuario.email}</th>
                             <th>{usuario.estado}</th>

@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom'
 
 export const TipoTable = (props) => {
     const { tipos } = props;
+    let numeral = 0;
     return (
         <table className="table">
             <thead>
                 <tr>
+                    <th>#</th>
                     <th>Nombre</th>
                     <th>Estado</th>
                     <th>Fecha de creacion</th>
@@ -18,6 +20,7 @@ export const TipoTable = (props) => {
                 {
                     tipos.map(tipo => {
                         return <tr key={tipo._id}>
+                            <th>{++numeral}</th>
                             <th>{tipo.nombre}</th>
                             <th>{tipo.estado}</th>
                             <th>{tipo.fechaCreacion}</th>

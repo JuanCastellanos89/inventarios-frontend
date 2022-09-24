@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom'
 
 export const MarcaTable = (props) => {
     const { marcas } = props;
+    let numeral = 0;
     return (
         <table className="table">
             <thead>
                 <tr>
+                    <th>#</th>
                     <th>Nombre</th>
                     <th>Estado</th>
                     <th>Fecha de creacion</th>
@@ -18,6 +20,7 @@ export const MarcaTable = (props) => {
                 {
                     marcas.map(marca => {
                         return <tr key={marca._id}>
+                            <th>{++numeral}</th>
                             <th>{marca.nombre}</th>
                             <th>{marca.estado}</th>
                             <th>{marca.fechaCreacion}</th>
