@@ -26,7 +26,7 @@ export const UsuarioView = () => {
     try {
       Swal.fire({
         allowOutsideClick: false,
-        text: 'Cargando...'
+        text: 'Loading...'
       });
       Swal.showLoading();
       const resp = await crearUsuarios(usuario);
