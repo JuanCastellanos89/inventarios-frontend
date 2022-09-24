@@ -3,12 +3,10 @@ import { Link } from 'react-router-dom'
 
 export const UsuarioTable = (props) => {
     const { usuarios } = props;
-
     return (
         <table className="table">
             <thead>
                 <tr>
-
                     <th>Nombre</th>
                     <th>Email</th>
                     <th>Estado</th>
