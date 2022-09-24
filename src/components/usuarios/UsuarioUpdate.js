@@ -74,53 +74,55 @@ export const UsuarioUpdate = () => {
 
     return (
         <div className='container-fluid'>
-            <form onSubmit={(e) => handleOnSubmit(e)}>
-                <div className='row'>
-                    <div className='col'>
-                        <div className='mb-3'>
-                            <label className="form-label">Nombre</label>
-                            <input type="text" name='nombre'
-                                required
-                                value={nombre}
-                                placeholder="Nombre"
-                                onChange={(e) => handleOnChange(e)}
-                                className="form-control" />
-                        </div>
-                    </div>
-
-                    <div className='col'>
-                        <div className='mb-3'>
-                            <label className="form-label">E-mail</label>
-                            <input type="email" name='email'
-                                required
-                                value={email}
-                                placeholder="example@mail.com"
-                                onChange={(e) => handleOnChange(e)}
-                                className="form-control" />
-                        </div>
-                    </div>
-
-                    <div className='col'>
-                        <div className='mb-3'>
-                            <label className="form-label">Estado</label>
-                            <select className="form-select"
-                                required
-                                onChange={(e) => handleOnChange(e)}
-                                name='estado'
-                                value={estado}>
-                                
-                                <option value="Activo">Activo</option>
-                                <option value="Inactivo">Inactivo</option>
-                            </select>
-                        </div>
-                    </div>
+            <div className='card'>
+                <div className='card-header'>
+                    <h4 className='card-title' align='center'>Modificar Usuario</h4>
                 </div>
-                <div className='row'>
-                    <div className='col'>
-                        <button className='btn btn-success'>Guardar</button>
+                <form onSubmit={(e) => handleOnSubmit(e)}>
+                    <div className='card-body'>
+                        <div className='row'>
+                            <div className='col'>
+                                <div className='mb-3'>
+                                    <label className="form-label">Nombre</label>
+                                    <input type="text" name='nombre'
+                                        required
+                                        value={nombre}
+                                        onChange={(e) => handleOnChange(e)}
+                                        className="form-control" />
+                                </div>
+                            </div>
+                            <div className='col'>
+                                <div className='mb-3'>
+                                    <label className="form-label">E-mail</label>
+                                    <input type="email" name='email'
+                                        required
+                                        value={email}
+                                        onChange={(e) => handleOnChange(e)}
+                                        className="form-control" />
+                                </div>
+                            </div>
+                            <div className='col'>
+                                <div className='mb-3'>
+                                    <label className="form-label">Estado</label>
+                                    <select className="form-select"
+                                        required
+                                        onChange={(e) => handleOnChange(e)}
+                                        name='estado'
+                                        value={estado}>
+                                        <option value="Activo">Activo</option>
+                                        <option value="Inactivo">Inactivo</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='row'>
+                            <div className='col'>
+                                <button className='btn btn-success'>Guardar</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     )
 }
