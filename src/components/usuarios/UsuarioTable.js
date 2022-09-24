@@ -10,6 +10,8 @@ export const UsuarioTable = (props) => {
                     <th>Nombre</th>
                     <th>Email</th>
                     <th>Estado</th>
+                    <th>Fecha de creacion</th>
+                    <th>Fecha de actualizacion</th>
                     <th>Accion</th>
                 </tr>
             </thead>
@@ -20,6 +22,8 @@ export const UsuarioTable = (props) => {
                             <th>{usuario.nombre}</th>
                             <th>{usuario.email}</th>
                             <th>{usuario.estado}</th>
+                            <th>{usuario.fechaCreacion}</th>
+                            <th>{usuario.fechaActualizacion}</th>
                             <Link to={`usuarios/edit/${usuario._id}`} >Modificar</Link>
                             </tr>
                     })
