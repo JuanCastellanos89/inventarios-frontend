@@ -25,8 +25,10 @@ export const MarcaTable = (props) => {
                             <th>{marca.estado}</th>
                             <th>{marca.fechaCreacion}</th>
                             <th>{marca.fechaActualizacion}</th>
-                            <Link to={`marcas/edit/${marca._id}`} >Modificar</Link>
-                            </tr>
+                            <Link to={`marcas/edit/${marca._id}`} >
+                                <button type="button" className="btn btn-warning">Modificar</button>
+                            </Link>
+                        </tr>
                     })
                 }
             </tbody>

@@ -25,7 +25,9 @@ export const EstadoTable = (props) => {
                             <th>{estado.estado}</th>
                             <th>{estado.fechaCreacion}</th>
                             <th>{estado.fechaActualizacion}</th>
-                            <Link to={`estados/edit/${estado._id}`} >Modificar</Link>
+                            <Link to={`estados/edit/${estado._id}`} >
+                                <button type="button" className="btn btn-warning">Modificar</button>
+                            </Link>
                         </tr>
                     })
                 }

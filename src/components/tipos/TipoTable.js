@@ -25,8 +25,10 @@ export const TipoTable = (props) => {
                             <th>{tipo.estado}</th>
                             <th>{tipo.fechaCreacion}</th>
                             <th>{tipo.fechaActualizacion}</th>
-                            <Link to={`tipos/edit/${tipo._id}`} >Modificar</Link>
-                            </tr>
+                            <Link to={`tipos/edit/${tipo._id}`} >
+                                <button type="button" className="btn btn-warning">Modificar</button>
+                            </Link>
+                        </tr>
                     })
                 }
             </tbody>

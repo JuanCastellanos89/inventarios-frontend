@@ -27,8 +27,10 @@ export const UsuarioTable = (props) => {
                             <th>{usuario.estado}</th>
                             <th>{usuario.fechaCreacion}</th>
                             <th>{usuario.fechaActualizacion}</th>
-                            <Link to={`usuarios/edit/${usuario._id}`} >Modificar</Link>
-                            </tr>
+                            <Link to={`usuarios/edit/${usuario._id}`} >
+                                <button type="button" className="btn btn-warning">Modificar</button>
+                            </Link>
+                        </tr>
                     })
                 }
             </tbody>
