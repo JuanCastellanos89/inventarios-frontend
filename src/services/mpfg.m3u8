@@ -1,0 +1,116 @@
+#EXTM3U
+#EXTINF:-1 ,Canal capital
+http://181.78.21.60:16123/play/ch70
+#EXTINF:-1 ,RCN
+http://181.78.21.60:16123/play/ch59
+#EXTINF:-1 ,Caracol
+http://181.78.21.60:16123/play/ch58
+#EXTINF:-1 ,Canal uno
+http://181.78.21.60:16123/play/ch63
+#EXTINF:-1 ,Señal colombia
+http://181.78.21.60:16123/play/ch61
+#EXTINF:-1 ,Canal Trece
+http://181.78.21.60:16123/play/ch64
+#EXTINF:-1 ,City tv
+http://181.78.21.60:16123/play/ch42
+#EXTINF:-1 ,Star channel
+http://181.78.21.60:16123/play/ch07
+#EXTINF:-1 ,FX
+http://181.78.21.60:16123/play/ch08
+#EXTINF:-1 ,HGTV
+http://tv.nousiptv.com:8080/ipcsella56/metsiez5230/1155823
+#EXTINF:-1 ,Euro channel
+http://181.78.21.60:16123/play/ch09
+#EXTINF:-1 ,Cine canal
+http://181.78.21.60:16123/play/ch10
+#EXTINF:-1 ,AMC
+http://181.78.21.60:16123/play/ch13
+#EXTINF:-1 ,DHE
+http://181.78.21.60:16123/play/ch14
+#EXTINF:-1 ,Discovery
+http://181.78.21.60:16123/play/ch22
+#EXTINF:-1 ,Discovery ID
+http://181.78.21.60:16123/play/ch23
+#EXTINF:-1 ,Turbo
+http://181.78.21.60:16123/play/ch24
+#EXTINF:-1 ,Home and Health
+http://181.78.21.60:16123/play/ch25
+#EXTINF:-1 ,History
+http://177.93.45.155:6143/play/a034/index.m3u8
+#EXTINF:-1 ,History 2
+http://177.93.45.155:6143/play/a036/index.m3u8
+#EXTINF:-1 ,TLC
+http://181.78.21.60:16123/play/ch26
+#EXTINF:-1 ,A&E
+http://gotv.vip:8880/Angel2023/Angel2023/6
+#EXTINF:-1 ,Animal planet
+http://181.78.21.60:16123/play/ch29
+#EXTINF:-1 ,Love nature
+http://181.78.21.60:16123/play/ch50
+#EXTINF:-1 ,Gourmet
+http://181.78.21.60:16123/play/ch27
+#EXTINF:-1 ,Food
+http://181.78.21.60:16123/play/ch28
+#EXTINF:-1 ,DW Español
+https://dwamdstream104.akamaized.net/hls/live/2015530/dwstream104/index.m3u8
+#EXTINF:-1 ,Golden Plus
+http://181.78.21.60:16123/play/ch46
+#EXTINF:-1 ,Golden Edge
+http://181.78.21.60:16123/play/ch47
+#EXTINF:-1 ,Golden PREMIER
+https://linear-411.frequency.stream/dist/vix/411/hls/master/playlist.m3u8
+#EXTINF:-1 ,TVMAX
+https://bcovlive-a.akamaihd.net/474b6caf58f8407fb1d1cc1ef64f50ff/us-west-2/6058004209001/playlist_dvr.m3u8
+#EXTINF:-1 ,Cinemax
+http://tv.nousiptv.com:8080/ipcsella56/metsiez5230/1068350
+#EXTINF:-1 ,Space
+http://gotv.vip:8880/Angel2023/Angel2023/113
+#EXTINF:-1 ,TNT
+http://gotv.vip:8880/Angel2023/Angel2023/243
+#EXTINF:-1 ,TNT HD
+http://177.93.45.155:6143/play/a00l/index.m3u8
+#EXTINF:-1 ,Sun
+http://181.78.21.60:16123/play/ch48
+#EXTINF:-1 ,Mas chic
+http://181.78.21.60:16123/play/ch33
+#EXTINF:-1 ,Pasiones
+http://181.78.21.60:16123/play/ch35
+#EXTINF:-1 ,Ve plus
+http://181.78.21.60:16123/play/ch36
+#EXTINF:-1 ,Las estrellas
+http://181.78.21.60:16123/play/ch44
+#EXTINF:-1 ,SONY
+http://177.93.45.155:6143/play/a01r/index.m3u8
+#EXTINF:-1 ,UNIVERSAL HD
+http://177.93.45.155:6143/play/a00d/index.m3u8
+#EXTINF:-1 ,Paramount+
+http://tv.nousiptv.com:8080/ipcsella56/metsiez5230/1155799
+#EXTINF:-1 ,WARNER
+http://gotv.vip:8880/Angel2023/Angel2023/366
+#EXTINF:-1 ,TNT SERIES
+http://gotv.vip:8880/Angel2023/Angel2023/365
+#EXTINF:-1 ,Universal Comedy HD
+http://170.254.172.10:8000/play/a04w/index.m3u8
+#EXTINF:-1 ,Universal Premiere HD
+http://170.254.172.10:8000/play/a04s/index.m3u8
+#EXTINF:-1 ,Universal Crime HD
+http://170.254.172.10:8000/play/a04v/index.m3u8
+#EXTINF:-1 ,HBO Family HD
+http://181.78.105.146:6060/play/a00k
+#EXTINF:-1 ,HBO Xtreme
+http://181.78.105.146:6060/play/a00l
+#EXTINF:-1 ,HBO 2
+http://gotv.vip:8880/Angel2023/Angel2023/88
+#EXTINF:-1 ,HBO POP
+http://tv.nousiptv.com:8080/ipcsella56/metsiez5230/47445
+#EXTINF:-1 ,CINE ESTELAR
+http://tv.nousiptv.com:8080/ipcsella56/metsiez5230/1156007
+#EXTINF:-1 ,Unknown_30
+http://181.78.21.60:16123/play/ch30
+#EXTINF:-1 ,Cine premium
+http://181.78.21.60:16123/play/ch49
+#EXTINF:-1 ,Cine familiar
+http://181.78.21.60:16123/play/ch52
+#EXTINF:-1 ,Cine hispano
+http://181.78.21.60:16123/play/ch51
+
